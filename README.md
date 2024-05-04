@@ -8,17 +8,17 @@ Note, I have not verified the chip in the TESmart network module so the informat
 The KVM can be controlled using the Windows utility available from the [TESmart downloads page](https://buytesmart.com/pages/downloads) using either the RS232 connection or by IP remote connection. There is a script in this directory as well, `tesmart.sh`, that can read the current port, set a new port, and toggle documented features on/off.
 
 While the API documentation from TESmart does not include information on updating the network settings using the serial or network protocol, the controller traffic indicates configuration is performed using ASCII commands. Assuming the CH9121, I checked the Waveshare documentation on their board and how to set the IP address information, it appears this may be handled on the serial side of the controller: [CH9121 SPCC (PDF)](https://www.waveshare.com/w/upload/e/ef/CH9121_SPCC.pdf). TESmart recently switched from a 10/100 Mbps controller to a 10 Mbps one that is incompatible with 2.5/5/10 Gbps Ethernet, I photographed the boards but have not identified the chips.
-<img src="/tesmart/images/tesmart_controller_1.png" alt="TESmart 8-Port Controller" width=400>
+<img src="/images/tesmart_controller_1.png" alt="TESmart 8-Port Controller" width=400>
 
 # IP Address and Interface Configuration
 
 My personal recommendation is to use the controller and documentation from the [TESmart downloads page](https://buytesmart.com/pages/downloads). The factory default `192.168.1.10/24` and may be changed using either the RS232 connection or remotely. Once applied, the changes are persisted but do not take effect until the KVM has been rebooted.
 
-<img src="/tesmart/images/tesmart_controller_2.png" alt="TESmart 8-Port Controller" width=400>
+<img src="/images/tesmart_controller_2.png" alt="TESmart 8-Port Controller" width=400>
 
 WARNING, confirm the IP settings before rebooting the KVM. The TESmart enterprise switch doesn't have a "factory reset" to my knowledge. If it is not possible to make a network connection to the KVM after a reboot and the settings are unknown (not default or the intended settings), the only known way to reconfigure the IP address would be to use the RS232 3-pin serial connection and appropriate cable or converter, either RS232 to USB or RS232 to TTL, to connect to the switch.
 
-<img src="/tesmart/images/tesmart_controller_3.png" alt="TESmart 8-Port Controller" width=400>
+<img src="/images/tesmart_controller_3.png" alt="TESmart 8-Port Controller" width=400>
 
 For systems connected on the same physical or layer 2 network, there are alternatives to reconfiguring the address:
 
